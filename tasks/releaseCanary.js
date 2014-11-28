@@ -35,6 +35,13 @@ module.exports = function(grunt) {
 
     var npm = require('npm');
     npm.load({}, function() {
+
+      console.log(process.env.npmuser, process.env.npmpass, process.env.npmmail);
+
+      console.log('---------------------');
+
+      console.log(npm.registry.adduser.toString());
+
       npm.registry.adduser(process.env.npmuser, process.env.npmpass, process.env.npmmail, function(err) {
         if (err) {
           grunt.log.error(err);
